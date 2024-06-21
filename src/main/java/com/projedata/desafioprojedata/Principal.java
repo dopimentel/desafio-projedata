@@ -48,6 +48,8 @@ public class Principal {
             }
         }
 
+        // Requisito 3.7 não foi apresentado no enunciado desafio, pulou para o 3.8
+
 
     }
 }
