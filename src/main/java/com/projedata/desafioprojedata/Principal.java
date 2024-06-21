@@ -71,6 +71,11 @@ public class Principal {
             System.out.println(f.getNome());
         }
 
+        BigDecimal totalSalarios = funcionarios.stream()
+                .map(Funcionario::getSalario)
+                .reduce(BigDecimal.ZERO, BigDecimal::add);
+        System.out.println("Total dos salários: " + String.format("%,.2f", totalSalarios));
+
 
     }
 }
