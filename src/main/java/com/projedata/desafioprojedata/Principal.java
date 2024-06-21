@@ -24,6 +24,15 @@ public class Principal {
 
         funcionarios.removeIf(f -> f.getNome().equals("João"));
 
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy");
+        for (Funcionario f : funcionarios) {
+            System.out.println("Nome: " + f.getNome());
+            System.out.println("Data de Nascimento: " + f.getDataNascimento().format(formatter));
+            System.out.println("Salário: " + String.format("%,.2f", f.getSalario()));
+            System.out.println("Função: " + f.getFuncao());
+            System.out.println();
+        }
+
 
     }
 }
