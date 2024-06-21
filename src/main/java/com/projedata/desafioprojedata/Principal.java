@@ -58,5 +58,11 @@ public class Principal {
             }
         }
 
+
+        Funcionario maisVelho = Collections.max(funcionarios, Comparator.comparing(Pessoa::getDataNascimento));
+        System.out.println("Oldest employee: " + maisVelho.getNome() + " - Idade: " +
+                (LocalDate.now().getYear() - maisVelho.getDataNascimento().getYear()));
+
+
     }
 }
