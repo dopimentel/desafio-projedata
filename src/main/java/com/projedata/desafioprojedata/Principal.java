@@ -77,5 +77,10 @@ public class Principal {
         System.out.println("Total dos salários: " + String.format("%,.2f", totalSalarios));
 
 
+        BigDecimal salarioMinimo = new BigDecimal("1212.00");
+        for (Funcionario f : funcionarios) {
+            BigDecimal salariosMinimos = f.getSalario().divide(salarioMinimo, 2, RoundingMode.HALF_UP);
+            System.out.println(f.getNome() + " ganha " + salariosMinimos + " salários mínimos.");
+        }
     }
 }
