@@ -38,6 +38,9 @@ public class Principal {
             f.setSalario(novoSalario);
         }
 
+        Map<String, List<Funcionario>> funcionariosPorFuncao = funcionarios.stream()
+                .collect(Collectors.groupingBy(Funcionario::getFuncao));
+
 
     }
 }
