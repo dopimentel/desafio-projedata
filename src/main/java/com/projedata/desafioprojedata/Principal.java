@@ -22,6 +22,8 @@ public class Principal {
                 new Funcionario("Helena", LocalDate.of(1996, 9, 2), new BigDecimal("2799.93"), "Gerente")
         ));
 
+        funcionarios.removeIf(f -> f.getNome().equals("João"));
+
 
     }
 }
