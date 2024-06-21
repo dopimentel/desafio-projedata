@@ -22,8 +22,10 @@ public class Principal {
                 new Funcionario("Helena", LocalDate.of(1996, 9, 2), new BigDecimal("2799.93"), "Gerente")
         ));
 
+        // Req 3.2
         funcionarios.removeIf(f -> f.getNome().equals("João"));
 
+        // Req 3.3
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy");
         for (Funcionario f : funcionarios) {
             System.out.println("Nome: " + f.getNome());
@@ -33,14 +35,17 @@ public class Principal {
             System.out.println();
         }
 
+        // Req 3.4
         for (Funcionario f : funcionarios) {
             BigDecimal novoSalario = f.getSalario().multiply(new BigDecimal("1.10"));
             f.setSalario(novoSalario);
         }
 
+        // Req 3.5
         Map<String, List<Funcionario>> funcionariosPorFuncao = funcionarios.stream()
                 .collect(Collectors.groupingBy(Funcionario::getFuncao));
 
+        // Req 3.6
         for (String funcao : funcionariosPorFuncao.keySet()) {
             System.out.println("Função: " + funcao);
             for (Funcionario f : funcionariosPorFuncao.get(funcao)) {
@@ -51,6 +56,7 @@ public class Principal {
         // Requisito 3.7 não foi apresentado no enunciado desafio, pulou para o 3.8
 
 
+        // Req 3.8
         for (Funcionario f : funcionarios) {
             int mes = f.getDataNascimento().getMonthValue();
             if (mes == 10 || mes == 12) {
@@ -59,11 +65,13 @@ public class Principal {
         }
 
 
-        Funcionario maisVelho = Collections.max(funcionarios, Comparator.comparing(Pessoa::getDataNascimento));
+        // Req 3.9
+        Funcionario maisVelho = Collections.min(funcionarios, Comparator.comparing(Pessoa::getDataNascimento));
         System.out.println("Oldest employee: " + maisVelho.getNome() + " - Idade: " +
                 (LocalDate.now().getYear() - maisVelho.getDataNascimento().getYear()));
 
 
+        // Req 3.10
         List<Funcionario> funcionariosOrdenados = new ArrayList<>(funcionarios);
         funcionariosOrdenados.sort(Comparator.comparing(Funcionario::getNome));
         System.out.println("Employees sorted by name:");
@@ -71,12 +79,14 @@ public class Principal {
             System.out.println(f.getNome());
         }
 
+        // Req 3.11
         BigDecimal totalSalarios = funcionarios.stream()
                 .map(Funcionario::getSalario)
                 .reduce(BigDecimal.ZERO, BigDecimal::add);
         System.out.println("Total dos salários: " + String.format("%,.2f", totalSalarios));
 
 
+        // Req 3.12
         BigDecimal salarioMinimo = new BigDecimal("1212.00");
         for (Funcionario f : funcionarios) {
             BigDecimal salariosMinimos = f.getSalario().divide(salarioMinimo, 2, RoundingMode.HALF_UP);
