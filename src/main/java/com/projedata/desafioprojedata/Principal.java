@@ -33,6 +33,11 @@ public class Principal {
             System.out.println();
         }
 
+        for (Funcionario f : funcionarios) {
+            BigDecimal novoSalario = f.getSalario().multiply(new BigDecimal("1.10"));
+            f.setSalario(novoSalario);
+        }
+
 
     }
 }
