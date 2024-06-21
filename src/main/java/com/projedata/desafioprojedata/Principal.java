@@ -41,6 +41,13 @@ public class Principal {
         Map<String, List<Funcionario>> funcionariosPorFuncao = funcionarios.stream()
                 .collect(Collectors.groupingBy(Funcionario::getFuncao));
 
+        for (String funcao : funcionariosPorFuncao.keySet()) {
+            System.out.println("Função: " + funcao);
+            for (Funcionario f : funcionariosPorFuncao.get(funcao)) {
+                System.out.println("  - " + f.getNome());
+            }
+        }
+
 
     }
 }
