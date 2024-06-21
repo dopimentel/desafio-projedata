@@ -64,5 +64,13 @@ public class Principal {
                 (LocalDate.now().getYear() - maisVelho.getDataNascimento().getYear()));
 
 
+        List<Funcionario> funcionariosOrdenados = new ArrayList<>(funcionarios);
+        funcionariosOrdenados.sort(Comparator.comparing(Funcionario::getNome));
+        System.out.println("Employees sorted by name:");
+        for (Funcionario f : funcionariosOrdenados) {
+            System.out.println(f.getNome());
+        }
+
+
     }
 }
