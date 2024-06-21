@@ -51,5 +51,12 @@ public class Principal {
         // Requisito 3.7 não foi apresentado no enunciado desafio, pulou para o 3.8
 
 
+        for (Funcionario f : funcionarios) {
+            int mes = f.getDataNascimento().getMonthValue();
+            if (mes == 10 || mes == 12) {
+                System.out.println("Happy Birthday: " + f.getNome() + " - " + f.getDataNascimento().format(formatter));
+            }
+        }
+
     }
 }
